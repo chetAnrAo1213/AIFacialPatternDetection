@@ -4,7 +4,9 @@ This model is integrated with AI and sometimes might provide unidentical values.
 ________________________________________________
 # Project Configuration
 Language :- Python(3V).
-Frameworks :- Flask.
-Ai Config :- Gemini API[gemini-1.5-flash].
 
+Frameworks :- Flask.
+
+Ai Config :- Gemini API[gemini-1.5-flash].
+________________________________________________
 # Demo Video
