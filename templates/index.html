@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload with Preview</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .preview-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .preview-container img {
+            max-width: 45%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center mt-4">Facial Pattern Matching Tool</h1>
+<div class="alert alert-warning" role="alert">
+  <h4 class="alert-heading">Caution:- </h4>
+  <p>This is an AI Based Analysis integrated with Gemini-Ai Model &
+      sometimes the results would not be accurate enough. Use wisely</p>
+  <hr>
+  <p class="mb-0">The photos you are about to upload will not be saved or stored.
+      And high quality images might may get rejected.</p>
+</div>
+    <div class="preview-container">
+        <div>
+            <h4>First Image Preview:</h4>
+            <img id="preview1" src="" alt="First Image Preview" style="display: none;">
+        </div>
+        <div>
+            <h4>Second Image Preview:</h4>
+            <img id="preview2" src="" alt="Second Image Preview" style="display: none;">
+        </div>
+    </div>
+
+    <form id="uploadForm" action="/" method="POST" enctype="multipart/form-data">
+        <div class="d-flex justify-content-between">
+            <div class="form-group mr-2" style="flex: 1;">
+                <label for="file1">Upload First Image:</label>
+                <input type="file" id="file1" name="file1" class="form-control" accept="image/*" onchange="previewImage(event, 'preview1')" required>
+            </div>
+            <div class="form-group ml-2" style="flex: 1;">
+                <label for="file2">Upload Second Image:</label>
+                <input type="file" id="file2" name="file2" class="form-control" accept="image/*" onchange="previewImage(event, 'preview2')" required>
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary btn-block">Upload Images</button>
+        </div>
+    </form>
+
+
+
+</div>
+
+<script>
+    function previewImage(event, previewId) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+        const preview = document.getElementById(previewId);
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '';
+            preview.style.display = 'none';
+        }
+    }
+</script>
+</body>
+</html>
