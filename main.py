@@ -5,10 +5,10 @@ from pathlib import Path
 
 # Configure Flask app
 app = Flask(__name__)
-UPLOAD_FOLDER = 'static/uploads/'
+UPLOAD_FOLDER = '/tmp/'  # Change to use /tmp/ directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Ensure the upload folder exists
+# Ensure the upload folder exists (this is typically not necessary for /tmp/)
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
@@ -60,7 +60,7 @@ model = genai.GenerativeModel(
 system_instruction = (
     "You are an expert in analyzing the facial dynamics of two images. "
     "Provide a similarity score between the provided images (range: 0.00 to 100.00). "
-    "Respond only with:'Facial Patterns Matched :- (range)'."
+    "Respond only with:'Facial Patterns Matched :- (range)'."  # Ensure strict response formatting
 )
 
 @app.route('/', methods=['GET', 'POST'])
