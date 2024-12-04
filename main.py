@@ -13,7 +13,7 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyBuAdi0-jF8txlrjqKIUbFkWXu4dH_0Bi0")
+genai.configure(api_key="AIzaSyCEfytqyG9hCiKfQae0N_yxh14gRv5gUeg")
 
 def image_format(image_path):
     """Converts image to required format for Gemini API."""
