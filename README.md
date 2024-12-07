@@ -11,3 +11,6 @@ Ai Config :- Gemini API[gemini-1.5-flash].
 ________________________________________________
 # Demo Video
 https://github.com/user-attachments/assets/89f5c744-0e55-4821-835f-7cc922c9faef
+
+# Deployment test Link
+https://ai-facial-pattern-detection.vercel.app/
